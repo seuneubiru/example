@@ -8,15 +8,30 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
     <!-- jQuery library -->
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/style2.css">
+
+    <script>
+        // if (typeof(Storage) !== "undefined") {
+        //     localStorage.setItem("lastname","smith");
+
+        //     document.getElementById("hasil").innerHTML = localStorage.getItem("lastname");
+        // } else {
+        //     document.getElementById("hasil").innerHTML = "maaf kamu siapa";
+        // }
+
+        localStorage.setItem("username","seuneubiru");
+        localStorage.setItem("password","mufiq");
+        
+    </script>
+
 </head>
 <body>
     <div>
@@ -26,24 +41,29 @@
             </h1>
         </div>
         <div>
-            <form action="" method="get">
+            <form action="">
                 <div>
                     <div>
                         <label>
                             username
                         </label>
-                        <input type="text">
+                        <input type="text" id="username">
                     </div>
                     <div>
                         <label>
                             password
                         </label>
-                        <input type="password">
+                        <input type="password" id="passwd">
                     </div>
                 </div>
+
+                <div id="hasil">
+
+                </div>
+
                 <div class="jarakatas">
                     <div>
-                        <button type="submit" class="btn-success">submit</button>
+                        <input type="button" value="Login" id="input" class="btn-succes" onclick="Login()">
                         <button type="reset" class="btn-warning">reset</button>
                         <a href="HOME2.html" class="btn-kembali">kembali</a>
                     </div>
@@ -51,7 +71,23 @@
             </form>
         </div>
     </div>
+    
+    <script>
+        
+        var user = document.getElementById("username").value;
+        var pass = document.getElementById("passwd").value;
+        
+        function Login() {
+            
+            if (user != localStorage.getItem("username") && pass != localStorage.getItem("password")) {
+                document.getElementById("hasil").innerHTML = "user dan pass tidak sama";
+            } else {
+                document.getElementById("hasil").innerHTML = "login berhasil";
+            }
 
+        };
+
+    </script>
 
     <script type="text/javascript" src="jquery.js"></script>
 </body>
