@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <style>
+    table,th,td,tfoot{
+        border: solid 1px black;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    </style>
+</head>
+<body>
+    
+    <!-- <button id="btn">Click here</button> -->
+
+    <!-- <div id="induk">
+        <input type="number" id="test">
+        <button type="submit" onclick="tampil()">tampilkan</button>
+    
+        <p id="anak"></p>
+    </div> -->
+    
+    <div>
+        <label for="">Nama Barang</label>
+        <select name="namabarang" id="namabarang"> 
+            <option value="Barang 1">Barang 1</option>
+            <option value="Barang 2">Barang 2</option>
+            <option value="Barang 3">Barang 3</option>
+            <option value="Barang 4">Barang 4</option>
+        </select>
+        <!-- <input type="text" value="" name="barang" id="barang"> -->
+    </div>
+    <div>
+        <label for="">Jumlah barang</label>
+        <!-- <select name="jumlahbarang" id="jumlahbarang">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select> -->
+        <input type="number" value="" name="jumlah" id="jumlah">
+    </div>
+    <div>
+        <label for="">Harga barang</label>
+        <!-- <select name="hargabarang" id="hargabarang">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+        </select> -->
+        <input type="number" value="" name="harga" id="harga">
+    </div>
+    <div>
+        <input type="button" value="click" onclick="myFunction()">
+    </div>
+    <div>
+        <!-- <input type="button" value="delete"> -->
+    </div>
+        <table id="tre">
+
+            <thead>
+                <th>No</th>
+                <th>Nama barang</th>
+                <th>Jumlah</th>
+                <th>Harga</th>
+                <th>Diskon</th>
+                <th>total Harga</th>
+                <th>Aksi</th>
+            </thead>
+
+            <tbody id="body">
+            
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td >Jumlah Barang</td>
+                    <td id="tjumlah"></td>
+                    <td >Total Harga</td>
+                    <td id="tharga"></td>
+                    <td id="tdiskon"></td>
+                    <td id="ttotal"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    
+
+    <!-- <button id="btn">test</button> -->
+    
+    <script type="text/javascript" src="scripts/latihan.js"></script>
+    <script>
+
+        var r;
+        function myFunction() {
+            var table = document.getElementById("tre").rows.length;
+            r = table - 1;
+        
+            var del = document.createElement("button");
+
+            var narok = document.getElementById("body");
+            var row = narok.insertRow();
+            var cell1 = row.insertCell(0);
+            cell1.setAttribute("id","no");
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            // cell3.setAttribute("id","jumlah");
+            var cell4 = row.insertCell(3);
+            // cell4.setAttribute("id","sumhar");
+            var cell5 = row.insertCell(4);
+            // cell5.setAttribute("id","diskon");
+            var cell6 = row.insertCell(5);
+            // cell6.setAttribute("id","sumhar");
+            var cell7 = row.insertCell(6);
+            console.log(r);
+
+            var diskon = 0;
+
+            if (document.getElementById("jumlah").value >= 5) {
+                diskon = 10;
+            }
+
+            cell1.innerHTML = r;
+            cell2.innerHTML = document.getElementById("namabarang").value;
+            cell3.innerHTML = document.getElementById("jumlah").value;
+            cell4.innerHTML = document.getElementById("harga").value;
+            cell5.innerHTML = diskon;
+            cell6.innerHTML = document.getElementById("harga").value * document.getElementById("jumlah").value -(document.getElementById("harga").value * document.getElementById("jumlah").value * (diskon/100));
+            cell7.innerHTML = '<button id="deltes" onClick="deltes(this)">Delete</button>';
+            
+            // var hit = document.getElementById("body");
+            // var sumjum = 0;
+            // var row = document.getElementsByTagName("td");
+            // var sumtot = 0;
+            // for (let i = 0; i < hit.rows.length; i++) {
+            //     sumjum = sumjum += parseInt(hit.rows[i].cells[2].innerHTML);
+            //      console.log(sumjum);
+            // }
+
+            // for (let j = 0; j < hit.rows.length; j++) {
+            //     sumtot = sumtot += parseInt(hit.rows[j].cells[3].innerHTML);
+            //     // sumtot = hit.rows[j].cells[3].innerHTML;
+            //     // console.log(sumtot);
+            // }
+            hitung();
+        }
+        
+        function hitung() {
+            
+            var hit = document.getElementById("body");
+            var sumjum = 0;
+            var distot = 0;
+            var totsum = 0;
+            var totsum1 = 0;
+            var row = document.getElementsByTagName("td");
+            var sumtot = 0;
+            
+            for (let i = 0; i < hit.rows.length; i++) {
+                sumjum = sumjum += parseInt(hit.rows[i].cells[2].innerHTML);
+                //  console.log(sumjum);
+
+                distot = distot += parseInt(hit.rows[i].cells[4].innerHTML);
+                
+                sumtot = sumtot += parseInt(hit.rows[i].cells[3].innerHTML);
+
+                totsum = totsum += parseInt(hit.rows[i].cells[5].innerHTML);
+                totsum1 = totsum1 + totsum - (sumtot * (distot/100));
+            }
+
+            document.getElementById("tjumlah").innerHTML = sumjum;
+            document.getElementById("tharga").innerHTML = sumtot;
+            document.getElementById("tdiskon").innerHTML = distot;
+            document.getElementById("ttotal").innerHTML = totsum1;
+        }
+
+
+
+        function deltes(oButton) {
+            
+            var hapus = document.getElementById("tre");
+            var hit = document.getElementById("body");
+            
+            hapus.deleteRow(oButton.parentNode.parentNode.rowIndex);
+            hitung();
+        }
+
+        // function deletE() {
+        //     var table = document.getElementById("tre").rows.length;
+        //     var r = table - 1;
+        //     console.log(r);
+            
+        //     document.getElementById("body").deleteRow(r-1);
+        // }
+
+        // var maxID = 0;
+        // function getTemplateRow() {
+        //     var x = document.getElementById("tamplateROw").cloneNode(true);
+        //     x.id = "";
+        //     x.style.display ="";
+        //     x.innerHTML = x.innerHTML.replace(/{id}/,++maxID);
+        //     return x;
+        // }
+
+        // function addRow(){
+        //     var t = document.getElementById("tre");
+        //     var rows = t.getElementsByTagName("tr");
+        //     r.parentNode.insertBefore(getTemplateRow(),r);
+        //     var r = rows[rows.length - 1];
+        // }
+        
+    </script>
+    <!-- <script>
+        var parent = document.getElementById("induk");
+        var chile = document.getElementById("anak");
+        var p = document.createElement("p");
+        var node = document.createTextNode("username");
+        var a = document.getElementById("submit").value;
+        function tampil(){    
+            var a = document.getElementById("test").value;
+            for (i = 0; i < a; i++) {
+                    // p.appendChild(node);
+                    if (i % 2 == 0) {
+                        chile.innerHTML += "username "+i+" <input></br>";
+                    }
+            }
+        }
+    </script> -->
+</body>
+</html>

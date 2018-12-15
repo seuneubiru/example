@@ -1,0 +1,174 @@
+body{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    background-color: bisque;
+    margin: 0;
+    position: relative;
+}
+
+header{
+    top: 10px;
+    position: relative;
+}
+
+.setup{
+    margin: 0;
+}
+
+ul{
+    list-style-type: none;
+    background-color: aqua;
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 450px;
+}
+
+li{
+    position: relative;
+    display: inline;
+    left: -20px;
+    background-color: chartreuse;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+li a{
+    text-decoration: none;
+    display: inline;
+    position: relative;
+}
+
+li:hover{
+    background-color: aquamarine;
+}
+
+div .drop{
+    display: inline;
+}
+
+.drop{
+    overflow: hidden;
+    top:25px;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+li a, .dropbtn{
+    display: inline-block;
+    color: blue;
+    text-align: center;
+    text-decoration: none;
+}
+
+li.dropdown{
+    display: inline-block;
+}
+
+a:hover{
+    text-decoration: none;
+    list-style-type: none;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: coral;
+    min-width: 160px;
+    box-shadow: 0px 8px  16px  rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a{
+    color: crimson;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover{
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.nav-up{
+    position: relative;
+    top:100px;
+}
+
+.nav-up div h1{
+    position: relative;
+}
+
+.divsignup{
+    position: relative;
+    top: 30px;
+}
+
+.divberforeform{
+    position: relative;
+    top: 35px;
+}
+
+.forlabel{
+    position: relative;
+    background-color: aqua;
+    margin: 0;
+    float: left;
+    left: -15px;
+}
+
+.divbeforelabel{
+    position: relative;
+    display: block;
+    border: solid lightblue 25px;
+    margin: 0px;
+}
+
+form{
+    position: absolute;
+    left: 500px;
+}
+.forinput{
+    position: relative;
+    float: right;
+}
+
+form div{
+    position: relative;
+}
+
+.forformbutton{
+    position: relative;
+    top: 20px;
+}
+
+
+.btn-success{
+    background-color: green;
+}
+
+.btn-warning{
+    background-color: yellow;
+}
+
+.btn-kembali{
+    border: 1px solid gray;
+    background-color: gray;
+    color: white;
+    padding: 3px;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+
+.jarakatas{
+    position: relative;
+    top: 50px;
+}
